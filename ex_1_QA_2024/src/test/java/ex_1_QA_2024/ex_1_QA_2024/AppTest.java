@@ -5,7 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 /**
- * Unit test for simple App.
+ * Fadi Marjieh - 312312861
+ * Steve Evtushenko - 315914671
  */
 public class AppTest {
 

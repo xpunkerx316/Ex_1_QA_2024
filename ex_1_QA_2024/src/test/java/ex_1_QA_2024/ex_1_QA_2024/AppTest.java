@@ -16,7 +16,18 @@ public class AppTest {
     @Test
     public void Test_1() {
     	String expectedResult ="A";
-    	int a=28, b=24;
+    	int a=5, b=3;
+    	String mode="regulars";
+    	String actualResult=tester.Compare(a, b, mode);
+    	assertEquals(expectedResult,actualResult);
+    }
+    
+    
+    // positive test -- reciprocals mode
+    @Test
+    public void Test_2() {
+    	String expectedResult ="A";
+    	int a=2, b=2;
     	String mode="regulars";
     	String actualResult=tester.Compare(a, b, mode);
     	assertEquals(expectedResult,actualResult);
@@ -24,20 +35,10 @@ public class AppTest {
     
     // positive test -- negatives mode
     @Test
-    public void Test_2() {
-    	String expectedResult ="B";
-    	int a=28, b=24;
-    	String mode="negatives";
-    	String actualResult=tester.Compare(a, b, mode);
-    	assertEquals(expectedResult,actualResult);
-    }
-    
-    // positive test -- reciprocals mode
-    @Test
     public void Test_3() {
     	String expectedResult ="B";
-    	int a=5, b=3;
-    	String mode="reciprocals";
+    	int a=7, b=3;
+    	String mode="negatives";
     	String actualResult=tester.Compare(a, b, mode);
     	assertEquals(expectedResult,actualResult);
     }
@@ -48,8 +49,8 @@ public class AppTest {
     @Test
     public void Test_4() {
     	String expectedResult ="A";
-    	int a=0, b=3;
-    	String mode="reciprocals";
+    	int a=-2, b=4;
+    	String mode="negatives";
     	String actualResult=tester.Compare(a, b, mode);
     	assertEquals(expectedResult,actualResult);
     }
@@ -60,11 +61,34 @@ public class AppTest {
      */  
     @Test
     public void Test_5() {
-    	String expectedResult ="Mode not recognized";
-    	int a=5, b=3;
-    	String mode="random";
+    	String expectedResult ="A";
+    	double a=0.5, b=10;
+    	String mode="reciprocals";
     	String actualResult=tester.Compare(a, b, mode);
     	assertEquals(expectedResult,actualResult);
     }
+    
+    @Test
+    public void Test_6() {
+    	String expectedResult ="B";
+    	double a=-2, b=-4;
+    	String mode="reciprocals";
+    	String actualResult=tester.Compare(a, b, mode);
+    	assertEquals(expectedResult,actualResult);
+    }
+    
+    @Test
+    public void Test_7() {
+    	String expectedResult ="Error";
+    	int a=3,b=0;
+    	String mode = "reciprocals";
+    	try {
+    	String actualResult=tester.Compare(a, b, mode);
+    	assertEquals(expectedResult,actualResult);
+    	} catch(ArithmeticException e) {
+    		e.printStackTrace();
+    	}
+    }
+
     
 }
